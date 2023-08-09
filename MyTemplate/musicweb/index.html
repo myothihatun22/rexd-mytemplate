@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mini Music
+        </title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"
+            integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <style>
+            .bg-rex {
+                background-image: linear-gradient(to right top, #232230, #443763, #724a94, #ae57c2, #f45ce7);
+            }
+            .box-shodow-rex{
+                box-shadow: 0px 0px 20px #fd05e8;
+            }
+            .color-rex {
+                color: #f45ce7;
+            }
+            .height-fit{
+                height: 20px;
+            }
+
+            .color-rexh {
+                color: #0dcaf0;
+            }
+            * {
+                cursor: pointer;
+                color: #fff6ff;
+                font-size: 18px;
+                scroll-behavior:smooth;
+                font-family: "Lucida Console", "Courier New", monospace;
+            }
+            .width-500px {
+                width: 500px;
+            }
+            .p-m-0 {
+                padding: 0;
+                margin: 0;
+            }
+            .width-100px {
+                width: 100px;
+            }
+            .box-shadow-none:focus {
+                box-shadow: none;
+            }
+            .height-30px {
+                height: 80px;
+                padding: 0;
+            }
+            .bg-nav {
+                background-color: rgba(55, 58, 58, 0.2);
+            }
+            .bg-btn {
+                background-color: #232230;
+            }
+            .click:focus {
+                background-color: #f45ce7;
+            }
+            .height-100vh {
+                height: 100vh;
+            }
+            .height-auto {
+                height: auto;
+            }
+            .navbar {
+                position: fixed;
+                transition: 1.3s;
+                width: 100%;
+            }
+            .padding-top-80px {
+                padding-top: 80px;
+            }
+            .content-all-center {
+                justify-content: center;
+                align-items: center;
+            }
+            .bg-second {
+                background-color: #232230;
+            }
+            .bg-btn2 {
+                background-color: #e747d9;
+            }
+            .flex-direction-column {
+                flex-direction: column;
+            }
+            .margin-top-200px {
+                margin-top: 200px;
+            }
+            .margin-top-50px {
+                margin-top: 50px;
+            }
+            .color-rex2 {
+                color: #ffff;
+            }
+            .zindex-5 {
+                z-index: 5;
+            }
+            .hovere:hover {
+                border-radius: 20px;
+                box-shadow: 0 0 55px #690669;
+                border-right: 3px solid #e747d9;
+                border-left: 3px solid #d835cb;
+                color: #ff51f0;
+            }
+            .hovere:focus {
+                background-color: #807da0;
+            }
+            .transition {
+                transition: 0.5s;
+            }
+            .zindex-3 {
+                z-index: 3;
+            }
+            .w-30px {
+                width: 30px;
+            }
+            .margin-left-200px {
+                margin-left: 200px;
+            }
+            .height-130vh {
+                height: 130vh;
+            }
+            .w-30px rounded-circle height-30px{
+                width: 50px;
+            }
+            .height-30px{
+                height: 30px;
+            }
+            .boxs-animate{
+                animation: boxAnimate 3s ease-in-out in;
+            }
+            
+            img{
+                border-radius: 20px;
+            }
+            audio {
+                width: 100%;
+                margin-top: 50px;
+                height: auto;
+                border-radius: 30px;
+                background-color:#363336;
+                border: 1px solid #461743;
+                box-shadow: 0px 0px 15px  #f00dce;
+                color: #ff00ea;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+            }
+            .height-80vh{
+                height: 80vh;
+            }
+            @media only screen and (max-width: 768px) {
+                *{
+                    font-size: 15px !important;
+                }
+                .section-one{
+                    display: none;
+
+                }
+                .Section-three{
+                    display: none !important;
+                }
+                .music-player-card{
+                    width:300px  !important;
+                }
+                
+                
+                
+            }
+
+        </style>
+
+    </head>
+    <body class="bg-rex">
+        <div class=" w-100 ">
+            <nav class="navbar navbar-light bg-nav height-50px border-bottom zindex-3">
+                <div class="d-flex justify-content-evenly container-fluid">
+                    <a class="navbar-brand "></a>
+                    <form class="width-500px d-flex">
+                        <input
+                            class=" form-control me-2 box-shadow-none"
+                            id="mySearch"
+                            type="search"
+                            placeholder="Search using the first word here"
+                            aria-label="Search">
+                        <div class="btn-group">
+                            <button
+                                onclick="myFunction()"
+                                class="btn btn-secondary btn-lg box-shadow-none bg-btn"
+                                type="button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <button
+                                type="button"
+                                class="box-shadow-none btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split bg-btn"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="visually-hidden ">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item click" href="#popS">Pop Music</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item click" href="#jpmS">Jp Music</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item click" href="#popularS">Popular</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </form>
+
+                </div>
+            </nav>
+            <div class="all w-100 d-flex ">
+                <div class=" section-one box-shodow-rex w-25 bg-second h-screen zindex-5 overflow-scroll">
+                    <div class=" d-flex flex-direction-row flex-lg-column   p-2 color-rex2 ">
+                        <div
+                            class="border-bottom d-flex all-center justify-content-center flex-direction-column content-all-center">
+                            <img
+                                class=" width-100px"
+                                src="REX LOGO5.png"
+                                alt="">
+                            <span>Music Player
+                            </span>
+                        </div>
+                        <a href="#homeS" class="btn color-rex margin-top-50px p-3 hovere transition ">Home</a>
+                        <a
+                            class="btn color-rex margin-top-50px p-3 hovere transition "
+                            href="#popularS">Popular</a>
+                        <a class="btn color-rex margin-top-50px p-3 hovere transition " href="#popS">Pop</a>
+                        <a
+                            class="btn color-rex margin-top-50px p-3 hovere transition "
+                            href="#jpmS">JPM</a>
+                        <a
+                            onclick="ReloadFun()"
+                            class="btn color-rex margin-top-50px p-3 hovere transition ">Reload</a>
+                    </div>
+                </div>
+                <div class=" section-two w-100 height-100vh  overflow-scroll  ">
+                    <div id="carouselExampleCaptions" class=" carousel slide " >
+                        <div id="homeS"></div>
+                        <div class="carousel-indicators sectionS">
+                            <button
+                                type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="0"
+                                class="active  rounded-3 "
+                                aria-current="true"
+                                aria-label="Slide 1"></button>
+                            <button
+                                type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button
+                                type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner sectionS mt-5">
+                            <div class="carousel-item active">
+                                <img  src="https://rb.gy/iixrb3" class="h-auto d-block height-100vh w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block ">
+                                    <h5>First slide label</h5>
+                                    <p>Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div id="popular" class="carousel-item">
+                                <img src="https://rb.gy/wl8bpm" class="h-auto d-block height-100vh w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block ">
+                                    <h5>Second slide label</h5>
+                                    <p>Some representative placeholder content for the second slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://rb.gy/12urg7" class="h-auto d-block height-100vh w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block ">
+                                    <h5>Third slide label</h5>
+                                    <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sectionS">
+                            <button
+                                class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button
+                                class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        </div>
+                     <div class="d-flex">
+                        <div id="popularS" class="height-130vh section d-flex  pt-md-5 overflow-hidden ">
+                            <div class="list-unstyled  mt-5  p-5 w-100   ">
+                                <h2 class="sectionS">Popular</h2>
+                                <div class="d-flex flex-column-reverse  content-all-center w-100 justify-center">
+                                    <ul class=" w-100 list-unstyled mt-3">
+                                        <li>
+                                            <a class=" btn hovere" href="#p1">24kGoldn - Mood
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=" btn hovere" href="#p2">Clean_Bandit_Rockabye..
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=" btn hovere" href="#p3">David_Guetta_Bebe...
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=" btn hovere" href="#p4">Harry_Styles_As_It_Was
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=" btn hovere" href="#p5">Sam_Smith_Unholy_..</a>
+                                        </li>
+                                        <li>
+                                            <a class=" btn hovere" href="#p6">The_Chainsmokers_Closer</a>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class=" music-player-card d-flex overflow-scroll " style="width: 130vh;">
+                                        <div id="p1" class=" d-flex justify-center">
+                                            <div class="  card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;">
+                                                <div class=" flex justify-center align-center sectionS ">
+                                                    <img class="d-block  w-100 w-100 mb-lg-3" src="https://rb.gy/wl8bpm" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="http://sndup.net/3y9g">
+                                                        <source src="http://sndup.net/3y9g" type="audio">
+                                                    </audio>
+                                                </div>
+
+                                                24kGoldn - Mood (Lyrics)
+                                            </div>
+                                        </div>
+                                        <div id="p2" class="">
+                                            <div class=" card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                                <div class=" flex justify-center align-center sectionS">
+                                                    <img class=" w-100 mb-lg-3 " src="https://rb.gy/oc6txd" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="Clean_Bandit_Rockabye_feat_Sean_Paul_Anne_Ma.mp3">
+                                                        <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                Clean Bandit Rockabye feat Sean Paul Anne Ma
+                                            </div>
+                                        </div>
+                                        <div id="p3" class="">
+                                            <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                                <div class=" flex justify-center align-center sectionS">
+                                                    <img class=" w-100 mb-lg-3 " src="https://rb.gy/j58i4q" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="David_Guetta_Bebe_Rexha_I_m_Good_Blue_Offic.mp3">
+                                                        <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                David Guetta Bebe Rexha I m Good Blue
+                                            </div>
+                                        </div>
+                                        <div id="p4" class="">
+                                            <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                                <div class=" flex justify-center align-center sectionS">
+                                                    <img class=" w-100 mb-lg-3 " src="https://rb.gy/w5rl82" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="Harry_Styles_As_It_Was.mp3">
+                                                        <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                Harry Styles As It Was
+                                            </div>
+                                        </div>
+                                        <div id="p5" class="">
+                                            <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                                <div class=" flex justify-center align-center sectionS">
+                                                    <img class=" w-100 mb-lg-3 " src="https://rb.gy/nfmllg" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="Sam_Smith_Unholy_Lyrics_ft_Kim_Petras_Sam_Sm.mp3">
+                                                        <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                Sam Smith Unholy Lyrics ft Kim Petras Sam Sm
+                                            </div>
+                                        </div>
+                                        <div id="p6" class="">
+                                            <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                                <div class=" flex justify-center align-center sectionS">
+                                                    <img class=" w-100 mb-lg-3 " src="https://rb.gy/bqpztp" alt="">
+                                                    <audio
+                                                        class=" align-center justify-center"
+                                                        controls="controls"
+                                                        
+                                                        mute="mute"
+                                                        src="The_Chainsmokers_Closer.mp3">
+                                                        <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                The Chainsmokers Closer
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="popS" class="border-top height-130vh section d-flex  mt-5   overflow-hidden">
+                        <div class="llist-unstyled  mt-5  p-5 w-100  "style="width:150vh;">
+                            <h2 class="mt-5  sectionS">Pop Music</h2>
+                            <div class="d-flex content-all-center flex-column-reverse ">
+                                <ul class=" w-100 list-unstyled mt-3">
+                                    <li>
+                                        <a class=" btn hovere" href="#po1">24kGoldn - Mood
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#po2">Clean_Bandit_Rockabye...
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#po3">David_Guetta_Bebe...
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#po4">Harry_Styles_As_It_Was
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#po5">Sam_Smith_Unholy..</a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#po6">The_Chainsmokers_Closer</a>
+                                    </li>
+                                </ul>
+                                <div class=" music-player-card d-flex  overflow-scroll   "style="width: 130vh;">
+                                    <div id="po1" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/wl8bpm" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="24kGoldn - Mood (Lyrics).mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+
+                                            24kGoldn - Mood (Lyrics)
+                                        </div>
+                                    </div>
+                                    <div id="po2" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/oc6txd" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="Clean_Bandit_Rockabye_feat_Sean_Paul_Anne_Ma.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Clean Bandit Rockabye feat Sean Paul Anne Ma
+                                        </div>
+                                    </div>
+                                    <div id="po3" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/j58i4q" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="David_Guetta_Bebe_Rexha_I_m_Good_Blue_Offic.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            David Guetta Bebe Rexha I m Good Blue
+                                        </div>
+                                    </div>
+                                    <div id="po4" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/w5rl82" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="Harry_Styles_As_It_Was.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Harry Styles As It Was
+                                        </div>
+                                    </div>
+                                    <div id="po5" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/nfmllg" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="Sam_Smith_Unholy_Lyrics_ft_Kim_Petras_Sam_Sm.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Sam Smith Unholy Lyrics ft Kim Petras Sam Sm
+                                        </div>
+                                    </div>
+                                    <div id="po6" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/bqpztp" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                   
+                                                    mute="mute"
+                                                    src="The_Chainsmokers_Closer.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            The Chainsmokers Closer
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="jpmS" class="border-top height-130vh section d-flex   overflow-hidden ">
+                        <div class="list-unstyled  mt-5  p-5 w-100  ">
+                            <h2 class="sectionS">JPM</h2>
+                            <div class="d-flex content-all-center flex-column-reverse ">
+                                <ul class=" w-100 list-unstyled mt-3 ">
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm1">One_Piece_Film_Red_ 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm2">Yuika_Sukidakara 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm3">Song_of_Seventeen.
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm4">ぎゅっと_Gyutto_Mosawo
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm5">Suzume_no_Tojimari </a>
+                                    </li>
+                                    <li>
+                                        <a class=" btn hovere" href="#jpm6">あれくん_Alekun_Baka</a>
+                                    </li>
+                                </ul>
+                                <div class=" music-player-card d-flex  overflow-scroll "style="width: 130vh;">
+                                    <div id="jpm1" class="">
+                                        <div class="card card-body bg-rex  sectionS " style="width: 300px ;height: 350px; padding: 30px;">
+                                            <div class="  sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/iixrb3" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="One_Piece_Film_Red_Theme_Song_Full_ _New_Genesis_.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                                
+                                            </div>
+
+                                            One_Piece_Film_Red_Theme_Song_Full_ _New_Genesis
+                                        </div>
+                                    </div>
+                                    <div id="jpm2" class="">
+                                        <div class="card card-body bg-rex m-lg- sectionS2" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/1cob2r" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="yuika_Sukidakara.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Yuika_Sukidakara
+                                        </div>
+                                    </div>
+                                    <div id="jpm3" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/h7ygnz" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                   
+                                                    mute="mute"
+                                                    src="Song_of_Seventeen_17さいのうた。 _Yuika_『ユイカ』 _Englis.mp3">
+                                                    <source src="24kGoldn - Mood (Lyrics).mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Song_of_Seventeen_17さいのうた。 _Yuika_『ユイカ』 _Englis
+                                        </div>
+                                    </div>
+                                    <div id="jpm4" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/wbru3v" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="ぎゅっと_Gyutto_Mosawo_もさを_ _Lyrics_Video.mp3">
+                                                    <source src="ぎゅっと_Gyutto_Mosawo_もさを_ _Lyrics_Video.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Gyutto_Mosawo_もさを_ _Lyrics
+                                        </div>
+                                    </div>
+                                    <div id="jpm5" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/12urg7" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="Suzume_no_Tojimari『Suzume』Theme_Song.mp3">
+                                                    <source src="Suzume_no_Tojimari『Suzume』Theme_Song.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Suzume_no_Tojimari『Suzume』Theme_Song
+                                        </div>
+                                    </div>
+                                    <div id="jpm6" class="">
+                                        <div class="card card-body bg-rex  sectionS" style="width: 300px ;height: 350px;padding: 30px;">
+                                            <div class=" flex justify-center align-center sectionS">
+                                                <img class=" w-100 mb-lg-3 " src="https://rb.gy/wtxm7b" alt="">
+                                                <audio
+                                                    class=" align-center justify-center"
+                                                    controls="controls"
+                                                    
+                                                    mute="mute"
+                                                    src="あれくん_Alekun_Baka_ばーか_ _Lyrics.mp3">
+                                                    <source src="あれくん_Alekun_Baka_ばーか_ _Lyrics.mp3" type="audio/mpeg">
+                                                </audio>
+                                            </div>
+                                            Alekun_Baka_ばーか_ _Lyrics
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="Section-three box-shodow-rex zindex-3 w-25 bg-second h-auto position-static d-flex overflow-scroll height-100vh  flex-column p-3 ">
+                    All 
+                   <div class=" d-flex flex-column overflow-scroll height-80vh mt-5 ">
+                    <div  class="m-1 p-1 border-top">
+                        <a href="#p1" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/wl8bpm" alt="">24kGoldn - Mood </a>
+
+                    </div>
+                    <div class=" m-1 p-1 border-top">
+                        <a href="#p2" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/oc6txd" alt="">Clean Bandit Rockabye..</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#p3" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/j58i4q" alt="">David Guetta Bebe Rexha..</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#p4" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/w5rl82" alt="">Harry Styles As It Was</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#p5" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/nfmllg" alt="">Sam Smith Unholy Lyrics </a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#p6" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/bqpztp" alt="">The Chainsmokers Closer </a>
+
+                    </div>
+                    <div class=" m-1 p-1 border-top">
+                        <a href="#jpm1" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/iixrb3" alt="">Film_Red_Theme</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#jpm2" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/1cob2r" alt="">Yuika...</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#jpm3" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/h7ygnz" alt="">Song_of_Seventeen</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#jpm4" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/wbru3v" alt="">Gyutto_Mosawo </a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#jpm5" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/12urg7" alt="">Suzume_no..</a>
+
+                    </div>
+                    <div class="m-1 p-1 border-top">
+                        <a href="#jpm6" class=" text-decoration-none hovere"style="color:white;">
+                        <img class=" w-30px rounded-circle height-fit rounded " src="https://rb.gy/wtxm7b" alt=""> Alekun_Baka</a>
+
+                    </div>
+                   
+
+                   </div>
+
+                   
+                </div>
+              
+            
+
+            </div>
+            <div class="zindex-5 mobile-nav d-flex justify-content-around p-3 bg-second box-shodow-rex d-lg-none">
+            <a href="#homeS" class=" ">
+                <i class="fa-solid fa-house "></i>
+            </a>
+            <a href="#popularS">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+            </a>
+            <a href="#jpmS">
+                <i class="fa-solid fa-music"></i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-rotate-right"></i>
+            </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+
+        //for navbar
+        var scroll1 = window.pageYOffset;
+        window.onscroll = function () {
+            var scroll2 = window.pageYOffset;
+            if (scroll1 > scroll2) {
+                document
+                    .querySelector('nav')
+                    .style
+                    .top = "0px";
+
+            } else {
+                document
+                    .querySelector('nav')
+                    .style
+                    .top = "-100px";
+            }
+            scroll1 = scroll2;
+        }
+        //for home btn - reload
+        function ReloadFun() {
+            window
+                .location
+                .reload();
+        }
+        // for BS js
+        var myCarousel = document.querySelector('#myCarousel')
+        var carousel = new bootstrap.Carousel(myCarousel)
+        // for search bar
+        function myFunction() {
+
+            let input = document
+                .getElementById("mySearch")
+                .value;
+            let x = document.getElementsByClassName('sectionS');
+            input = input.toLowerCase();
+            console.log(input);
+            for (let i = 0; i <= x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = "none";
+                    if (x[i].innerHTML.toLowerCase().includes(input)) {}
+                } else if (x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = "list-item";
+                }
+
+            }
+        }
+        // for collospase 
+        var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+var collapseList = collapseElementList.map(function (collapseEl) {
+  return new bootstrap.Collapse(collapseEl)
+})
+
+    </script>
+</body>
+</html>

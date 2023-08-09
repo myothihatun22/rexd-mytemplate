@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Instagram
+        </title>
+        <script src="https://kit.fontawesome.com/ee3c9aed71.js" crossorigin="anonymous"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                scroll-behavior: smooth;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav {
+                position: absolute;
+                height: 75px;
+                box-shadow: 0 0 15px rgb(182, 179, 179);
+            }
+            .nav-one {
+                width: 30%;
+            }
+            .nav-two {
+                margin-left: 0;
+                background-color: #ffff;
+                width: 210vh;
+                border: 1px solid #ccc7c7;
+            }
+            .nav-three {
+                width: 25%;
+            }
+            .searchbar {
+                padding: 10px;
+                width: 300px;
+                height: 30px;
+            }
+            .bi-mic {
+                border-radius: 0 20px 20px 0;
+                padding: 5px;
+                color: #8b8383;
+            }
+            .bi-search {
+                border-radius: 20px 0 0 20px;
+                padding: 5px;
+                color: #8b8383;
+            }
+            .bg-color-fafa {
+                background-color: #fafafa;
+            }
+            .bg-color-ffff {
+                background-color: #ffff;
+            }
+            .d-flex {
+                display: flex;
+            }
+
+            .ht-100v {
+                height: 100vh;
+            }
+            .section-one {
+                width: 30rem;
+                box-shadow: 0 0 10px #9f9898;
+
+            }
+            .w-100 {
+                width: 100%;
+            }
+            .h-100 {
+                height: 100%;
+
+            }
+            .section-two {
+                width: 100%;
+                overflow: scroll;
+
+            }
+            .section-three {
+                z-index: -2;
+                width: 25rem;
+                box-shadow: 0 0 10px #9f9898;
+            }
+            .w-30rem {
+                width: 30rem;
+            }
+            .justify-Co-center {
+                justify-content: center;
+            }
+            .align-center {
+                align-items: center;
+            }
+            .mL-15 {
+                margin-left: 15px;
+            }
+            .color-ffff {
+                color: #ffff;
+            }
+            .border-N {
+                border: none;
+                outline: none;
+            }
+            .border-rad-50 {
+                border-radius: 50%;
+            }
+            .border {
+                border: 1px solid #cbc7c7;
+            }
+            .border-20px {
+                border-radius: 20px;
+            }
+
+            .btn-one {
+                border: none;
+                margin-left: 200px;
+                padding: 5px;
+                width: 150px;
+                height: 40px;
+                border-radius: 20px;
+            }
+            .bg-gratient {
+                background-image: linear-gradient(to right top, #f6b32c, #fdac42, #fd5543, #fd4f44, #fd4945, #fe434b, #ff3e52, #ff3858, #ff3465, #ff3172, #fd327f, #fa348c);
+
+            }
+            .justify-evenly {
+                justify-content: space-evenly;
+            }
+            .p-10px {
+                padding: 10px;
+            }
+            .b-bottom {
+                border-bottom: 1px solid #ccc7c7;
+            }
+            .border-top {
+                border-top: 1px solid #cbc7c7;
+            }
+            .profile-bg {
+                width: 110px;
+                height: 110px;
+                margin-top: 150px;
+                margin-left: 100px;
+                background-image: linear-gradient(to right top, #dfca1a, #ffa114, #ff7040, #ff386e, #ff00a1, #ff00ac, #ff00b7, #ff00c2, #ff009d, #ff0079, #ff0056, #ff0434);
+            }
+            .profile {
+                width: 100px;
+                height: 100px;
+                background-color: #8b8383;
+            }
+            .name-p {
+                width: 100%;
+                padding: 30px;
+                text-align: center;
+            }
+            .color-6c {
+                color: #756c6c;
+            }
+            .font-size-20 {
+                font-size: 20px;
+            }
+            .font-w-9 {
+                font-weight: 900;
+            }
+            .view {
+                margin-left: -20px;
+            }
+            .feed {
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            .pL-30px {
+                padding-left: 30px;
+            }
+
+            .mT-30px {
+                margin-top: 30px;
+            }
+            .padding-top-50px {
+                padding-top: 50px;
+            }
+            .padding-top-20px {
+                padding-top: 20px;
+            }
+            .pB-50 {
+                padding-bottom: 50px;
+            }
+            .mB-50 {
+                margin-bottom: 50px;
+            }
+            .feed:hover {
+                color: #fd327f;
+                border-left: 5px solid #fd4945;
+            }
+            .Long-out {
+                transition: 0.5;
+                cursor: pointer;
+            }
+            .Long-out:hover {
+                color: #fd327f;
+            }
+            .mT-100px {
+                margin-top: 100px;
+            }
+            .trendpics {
+                width: 220px;
+                padding: 10px;
+            }
+            .margin-bottom-5px {
+                margin-bottom: 5px;
+            }
+            .trend-pic {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+            }
+            .flex-direction-row {
+                flex-direction: row;
+            }
+            .flex-direction-column {
+                flex-direction: column;
+            }
+            .flex-wap {
+                flex-wrap: wrap;
+            }
+            .Sug-pic {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .height-auto {
+                height: auto;
+            }
+            .active-profile-pic {
+                width: 35px;
+                height: 35px;
+                position: absolute;
+                border-radius: 50%;
+            }
+            .margin-left-10px {
+                margin-left: 10px;
+            }
+            .margin-left-30px {
+                margin-left: 30px;
+            }
+            .margin-left-50px {
+                margin-left: 50px;
+            }
+            .margin-left-70px {
+                margin-left: 70px;
+            }
+            .margin-left-90px {
+                margin-left: 90px;
+            }
+            .margin-left-110px {
+                margin-left: 110px;
+            }
+            .margin-auto {
+                margin: auto;
+            }
+            .color-fa34 {
+                color: #fa348c;
+            }
+            .navfix {
+                background-attachment: fixed;
+                position: fixed;
+                top: 0;
+            }
+            .front-size-25px {
+                font-size: 25px;
+            }
+            .border-gradient-two {
+                background-image: linear-gradient(to right top, #ced934, #f6b00e, #ff7e33, #ff4561, #ff0093, #ff00a5, #ff00b9, #ff00ce, #ff00b8, #ff00a3, #ff0090, #ff007e);
+            }
+            .addstory {
+                background-image: linear-gradient(to right top, #ced934, #f6b00e, #ff7e33, #ff4561, #ff0093, #ff00a5, #ff00b9, #ff00ce, #ff00b8, #ff00a3, #ff0090, #ff007e);
+                border-radius: 50%;
+                width: 130px;
+                height: 130px;
+                text-align: center;
+            }
+            .addstory-plus {
+                border-radius: 50%;
+                font-size: 40px;
+                width: 120px;
+                line-height: 120px;
+            }
+            .margin-left-140px {
+                margin-left: 140px;
+            }
+            .story-img {
+                border-radius: 50%;
+                width: 130px;
+                height: 130px;
+                border: 5px solid #fa348c;
+                border-bottom: none;
+            }
+            .margin-top-150px {
+                margin-top: 150px;
+            }
+            .margin-top-160px {
+                margin-top: 160px;
+            }
+            .justify-space {
+                justify-content: space-between;
+            }
+            .justify-end {
+                justify-content: flex-end;
+            }
+            .p-30px {
+                padding: 30px;
+            }
+            .text-align-end {
+                text-align: end;
+            }
+            .margin-right-200px {
+                margin-right: 200px;
+            }
+            .margin-right-100px {
+                margin-right: 100px;
+            }
+            .margin-left-250px {
+                margin-left: 250px;
+            }
+            .btn-feed-choose {
+                cursor: pointer;
+                padding: 10px;
+                width: 100px;
+                border: 1px solid #cbc7c7;
+                text-align: center;
+                border-radius: 20px;
+                background-color: #ffffff;
+                transition: 0.5;
+            }
+            .btn-feed-choose:hover {
+                background-color: #cac0c0;
+            }
+            .post {
+                width: 80%;
+                background-color: #ffffff;
+                box-shadow: 0 0 10px rgb(138, 137, 137);
+                height: fit-content;
+            }
+            .img-post {
+                width: 50px;
+                height: 50px;
+            }
+            .margin-left-450px {
+                margin-left: 450px;
+            }
+            .post-pic {
+                width: 95%;
+                margin: 30px auto auto;
+                height: 500px;
+
+            }
+            .w-200px{
+                width: 200px;
+            }
+            .justify-around{
+                justify-content: space-around;
+            }
+            .border-rad-30px{
+                border-radius: 30px;
+            }
+            .post-icon {
+                font-size: 25px;
+                padding: 10px;
+
+            }
+            .w-100px{
+                width: 100px;
+            }
+            .cursor-pointer {
+                cursor: pointer;
+            }
+            .ht-150v {
+                height: 150vh;
+            }
+        </style>
+    </head>
+    <body class=" bg-color-fafa d-flex">
+        <nav class=" d-flex w-100 navfix bg-color-ffff">
+            <div class="nav-one d-flex justify-Co-center align-center ">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-instagram "
+                    viewbox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                </svg>
+                <h2 class=" mL-15">Instagram</h2>
+
+            </div>
+            <div class="nav-two justify-Co-center  d-flex align-center ">
+                <div class="border-20px d-flex justify-Co-center align-center border ">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        class="bi bi-search bg-color-fafa"
+                        viewbox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    <input
+                        class=" searchbar bg-color-fafa border-N"
+                        type="text"
+                        placeholder="Search">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        class="bi bi-mic bg-color-fafa "
+                        viewbox="0 0 16 16">
+                        <path
+                            d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                        <path
+                            d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+                    </svg>
+                </div>
+
+                <button class=" btn-one bg-gratient color-ffff ">
+                    + Creat new Post
+                </button>
+            </div>
+            <div
+                class=" nav-three d-flex justify-Co-center align-center justify-evenly b-bottom">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-send p-10px bg-color-fafa border border-rad-50"
+                    viewbox="0 0 18 18 ">
+                    <path
+                        d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-bell p-10px bg-color-fafa border border-rad-50"
+                    viewbox="0 0 16 16">
+                    <path
+                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    class="bi bi-list p-10px "
+                    viewbox="0 0 16 16">
+                    <path
+                        fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+
+            </div>
+        </nav>
+        <div class="section-one bg-color-ffff h-100 ">
+            <div class=" profile-bg border-rad-50 d-flex justify-Co-center align-center">
+                <img class=" profile border-rad-50" src="https://rb.gy/9quxlt" alt="">
+            </div>
+            <div class=" name-p">
+                <h4 class=" font-size-20 ">ReMaX68</h4>
+                <p class=" color-6c">Myanmar,Burmese</p>
+            </div>
+            <div class="view d-flex justify-Co-center justify-evenly font-w-9 align-center">
+                <p>100k</p>
+                <p>
+                    5.2M</p>
+                <p>895</p>
+            </div>
+            <div class=" color-6c d-flex justify-Co-center justify-evenly b-bottom pB-50">
+                <p class="">Posts</p>
+                <p
+                    class=" ">Followers</p>
+                <p>Following</p>
+            </div>
+            <div class="
+                    menubar="menubar"
+                    mt-30px"="
+                    mt-30px""="mt-30px"
+                    "">
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-house-door-fill"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">Feed</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-archive"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">Explore</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-bookmark"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">My favorite</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-send"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">Direct</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-tv"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">IG TV</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-bar-chart"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">Stats</h4>
+                    </div>
+                    <div class="feed d-flex align-center pL-30px color-6c mT-30px   ">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-gear"
+                            viewbox="0 0 16 16">
+                            <path
+                                d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                            <path
+                                d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20">Setting</h4>
+                    </div>
+                    <br>
+                    <div
+                        class="Long-out d-flex align-center pL-30px color-6c mT-30px pB-50 border-top padding-top-50px">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="35"
+                            height="35"
+                            fill="currentColor"
+                            class="bi bi-box-arrow-right"
+                            viewbox="0 0 16 16">
+                            <path
+                                fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                            <path
+                                fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                        </svg>
+                        <h4 class=" mL-15 font-size-20 ">Log out</h4>
+                    </div>
+
+                </div>
+            </div>
+            <div class="section-two ht-150v ">
+                <div class=" story-section d-flex">
+                    <div class=" mT-100px">
+                        <h3 class=" margin-left-110px front-size-25px">
+                            Stories</h3>
+                        <div class="story-section  mT-30px ">
+                            <div class="addstory  margin-left-110px d-flex justify-Co-center align-center">
+                                <h1 class=" addstory-plus bg-color-ffff ">+</h1>
+                            </div>
+                            <span class=" color-6c margin-left-140px mT-30px">
+                                Add story</span>
+                        </div>
+                    </div>
+                    <div class=" border-rad-50 margin-top-160px ">
+                        <img class=" story-img margin-left-30px" src="https://rb.gy/lwovlu" alt="">
+                    </div>
+                    <div class=" border-rad-50 margin-top-160px ">
+                        <img class=" story-img margin-left-30px" src="https://rb.gy/nzgjez" alt="">
+                    </div>
+                    <div class=" border-rad-50 margin-top-160px ">
+                        <img class=" story-img margin-left-30px" src="https://rb.gy/yeejhf" alt="">
+                    </div>
+                    <div class=" border-rad-50 margin-top-160px ">
+                        <img class=" story-img margin-left-30px" src="https://rb.gy/2ttdlu" alt="">
+                    </div>
+                </div>
+                <div class=" feed-section mT-100px">
+                    <div class=" d-flex  w-100  justify-space">
+                        <h3 class=" margin-left-110px front-size-25px ">
+                            Feeds</h3>
+                        <div class=" d-flex">
+                            <p class=" btn-feed-choose">Latest</p>
+                            <p class=" btn-feed-choose margin-left-10px margin-right-100px">Popular</p>
+                        </div>
+                    </div>
+                    <div
+                        class="post border-20px h-100 mT-30px margin-left-110px d-flex p-30px  flex-direction-column">
+                        <div class=" d-flex flex-direction-row">
+                            <img class=" img-post  border-rad-50" src=" https://rb.gy/ie9drq" alt="">
+                            <div class="d-flex flex-direction-column mL-15 ">
+
+                                <h3>Boa Hancock</h3>
+                                <p class=" color-6c">One Piece,Boa Hancock</p>
+                            </div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="30"
+                                height="30"
+                                fill="currentColor"
+                                class="bi bi-three-dots margin-left-450px"
+                                viewbox="0 0 16 16">
+                                <path
+                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                            </svg>
+                            <br>
+                        </div>
+
+                        <img class=" post-pic border-20px" src="https://rb.gy/wi1ozk" alt="">
+                        <div class=" d-flex justify-Co-center mT-30px justify-space">
+
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-regular fa-heart fa-50px"></i>
+                                5.3M Like</p>
+                            <p class="cursor-pointer ">
+                                <i class=" post-icon fa-regular fa-comment"></i>270k Comment</p>
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-solid fa-share"></i>2.8k share</p>
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-regular fa-bookmark"></i>5k saved</p>
+                        </div>
+                        <div class="mL-15 mT-30px">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Ratione suscipit rem voluptates, obcaecati tempora modi voluptate id nesciunt
+                            quisquam accusamus ipsum,
+                        </div>
+                        <div class="margin-left-30px mT-30px d-flex">
+                            <img class=" img-post  border-rad-50" src="https://rb.gy/9quxlt" alt="">
+                            <div class=" mL-15 d-flex border-rad-30px border p-10px">
+                                <input class="w-30rem p-10px border-N" type="text" placeholder=" Write your comment">
+                                <div class=" d-flex align-center justify-around w-100px" >
+                                <i class="color-6c fa-solid fa-paperclip"></i>
+                                <i class="color-6c fa-solid fa-face-smile"></i>
+                                <i class="color-6c fa-solid fa-image"></i>
+                            </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div
+                        class="post border-20px h-100 mT-30px margin-left-110px d-flex p-30px  flex-direction-column">
+                        <div class=" d-flex flex-direction-row">
+                            <img class=" img-post  border-rad-50" src=" https://rb.gy/ie9drq" alt="">
+                            <div class="d-flex flex-direction-column mL-15 ">
+
+                                <h3>Boa Hancock</h3>
+                                <p class=" color-6c">One Piece,Boa Hancock</p>
+                            </div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="30"
+                                height="30"
+                                fill="currentColor"
+                                class="bi bi-three-dots margin-left-450px"
+                                viewbox="0 0 16 16">
+                                <path
+                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                            </svg>
+                            <br>
+                        </div>
+
+                        <img class=" post-pic border-20px" src="https://rb.gy/wi1ozk" alt="">
+                        <div class=" d-flex justify-Co-center mT-30px justify-space">
+
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-regular fa-heart fa-50px"></i>
+                                5.3M Like</p>
+                            <p class="cursor-pointer ">
+                                <i class=" post-icon fa-regular fa-comment"></i>270k Comment</p>
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-solid fa-share"></i>2.8k share</p>
+                            <p class="cursor-pointer ">
+                                <i class="post-icon fa-regular fa-bookmark"></i>5k saved</p>
+                        </div>
+                        <div class="mL-15 mT-30px">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Ratione suscipit rem voluptates, obcaecati tempora modi voluptate id nesciunt
+                            quisquam accusamus ipsum,
+                        </div>
+                        <div class="margin-left-30px mT-30px d-flex">
+                            <img class=" img-post  border-rad-50" src="https://rb.gy/9quxlt" alt="">
+                            <div class=" mL-15 d-flex border-rad-30px border p-10px">
+                                <input class="w-30rem p-10px border-N" type="text" placeholder=" Write your comment">
+                                <div class=" d-flex align-center justify-around w-100px" >
+                                <i class="color-6c fa-solid fa-paperclip"></i>
+                                <i class="color-6c fa-solid fa-face-smile"></i>
+                                <i class="color-6c fa-solid fa-image"></i>
+                            </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="section-three bg-color-ffff  ">
+                <div class="Sthree d-flex flex-direction-column mT-100px ">
+                    <h4 class=" mL-15">
+                        Trending Feeds
+                    </h4>
+                    <div class="trendpics d-flex flex-wap flex-direction-row mL-15">
+                        <img class=" trend-pic margin-bottom-5px" src="https://rb.gy/azhsdf" alt="">
+                        <img class=" trend-pic margin-bottom-5px" src="https://rb.gy/muatm8" alt="">
+                        <img class=" trend-pic margin-bottom-5px" src="https://rb.gy/djkb0t" alt="">
+                        <img class=" trend-pic margin-bottom-5px" src="https://rb.gy/nzi213" alt="">
+                    </div>
+
+                </div>
+                <div class=" mT-30px">
+                    <h4 class=" mL-15">Suggestions for you
+                    </h4>
+                    <div class=" sug-pics mT-30px">
+                        <div class=" sug-profile d-flex margin-bottom-5px">
+                            <img class=" Sug-pic mL-15" src="https://rb.gy/wgfe6o" alt="">
+                            <div class=" d-flex flex-direction-column mL-15">
+                                <h3 class="">Power</h3>
+                                <p class=" color-6c">ChainsawMan,power</p>
+                            </div>
+                        </div>
+                        <div class=" sug-profile d-flex margin-bottom-5px">
+                            <img class=" Sug-pic mL-15" src="https://rb.gy/espooj" alt="">
+                            <div class=" d-flex flex-direction-column mL-15">
+                                <h3 class="">Komi San</h3>
+                                <p class=" color-6c">Komi-Can't-Communicate,Komi</p>
+                            </div>
+                        </div>
+                        <div class=" sug-profile d-flex margin-bottom-5px">
+                            <img class=" Sug-pic mL-15" src="https://rb.gy/ie9drq" alt="">
+                            <div class=" d-flex flex-direction-column mL-15">
+                                <h3 class="">Boa Hancock</h3>
+                                <p class=" color-6c">One Piece,Boa Hancock</p>
+                            </div>
+                        </div>
+                        <div class=" sug-profile d-flex margin-bottom-5px">
+                            <img class=" Sug-pic mL-15" src="https://rb.gy/cqdltt" alt="">
+                            <div class=" d-flex flex-direction-column mL-15">
+                                <h3 class="">Albedo</h3>
+                                <p class=" color-6c">OverLord,Albedo</p>
+                            </div>
+                        </div>
+                        <div class=" sug-profile d-flex margin-bottom-5px">
+                            <img class=" Sug-pic mL-15" src="https://rb.gy/lrnqem" alt="">
+                            <div class=" d-flex flex-direction-column mL-15">
+                                <h3 class="">Kitagawa marin</h3>
+                                <p class=" color-6c">My Dress-Up Darling,kitagawa marin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class=" mT-30px mL-15">
+                        Profile Activity</h4>
+                    <div
+                        class="bg-color-fafa profile-actives mT-30px margin-left-30px padding-top-20px">
+                        <img
+                            class=" active-profile-pic  margin-left-10px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <img
+                            class=" active-profile-pic margin-left-30px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <img
+                            class=" active-profile-pic margin-left-50px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <img
+                            class=" active-profile-pic margin-left-70px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <img
+                            class=" active-profile-pic margin-left-90px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <img
+                            class=" active-profile-pic margin-left-110px"
+                            src="https://rb.gy/lrnqem"
+                            alt="">
+                        <br>
+                        <div class="">
+                            <h1 class=" mT-30px">24.3K</h1>
+                            <span class=" color-6c">Follower</span>
+                            <p class="">Active Now on your profile</p>
+                        </div>
+                    </div>
+                    <p class=" mL-15 mT-30px color-6c">The perfect time for uploading your new post
+                        <a class=" color-fa34" href="">Creat new post</a>
+                    </p>
+                </div>
+            </div>
+
+        </body>
+    </html>

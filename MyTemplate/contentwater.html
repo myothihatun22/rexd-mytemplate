@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <style>
+            * {
+                padding: 0%;
+                margin: 0%;
+            }
+            body{
+                background-image: linear-gradient(to left bottom, #ffffff, #edf9ff, #c0faff, #7bfdff, #00ffff);
+            }
+            .container {
+                height: 100vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+            .img {
+                margin-right:200px ;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 400px;
+                height: 550px;
+                overflow: hidden;
+                background-color: aqua;
+                border-radius: 70% 50% 60% 80%;
+                z-index: 2;
+                animation: animate 7s infinite ease-in-out;
+            }
+            @keyframes animate {
+                0% {
+                    border-radius: 70% 50% 60% 80%;
+                }
+                50% {
+                    border-radius: 85% 80% 60% 50%;
+                }
+                100% {
+                    border-radius: 70% 50% 60% 80%;
+                }
+                
+            }
+            img {
+                width: 400px;
+                height: fit-content;
+                z-index: 0;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .content > p {
+                width: 500px;
+            }
+            .circle {
+                background-color: rgb(255, 255, 255,0.0);
+                width: 30px;
+                position: absolute;
+                height: 30px;
+                border-radius: 50%;
+                left: 100px;
+                border: 5px solid #6c6c6c;
+                animation: circleOne 10s infinite;
+            }
+            @keyframes  circleOne  {
+                0% {
+                    left: 100px;
+                }
+                50% {
+                    left: 130px;
+                }
+                100% {
+                    left: 100px;
+                }
+            }
+            .tringle {
+                background-color: rgb(255, 255, 255,0.0);
+                width: 20px;
+                position: absolute;
+                height: 20px;
+                border-radius: 10%;
+                bottom: 100px;
+                margin-left: -300px;
+                border: 5px solid #4e4d4d;
+                animation: animatetri 5s infinite;
+
+            }
+            @keyframes animatetri  {
+                0% {
+                    transform: rotate(30deg);
+                }50% {
+                    transform: rotate(70deg);
+                }
+                100% {
+                    transform: rotate(30deg);
+                }
+                
+            }
+            .circle-two {
+                background-color: rgb(255, 255, 255,0.0);
+                width: 30px;
+                position: absolute;
+                height: 30px;
+                border-radius: 50%;
+                border: 5px solid #7f7f7f;
+            }
+            #tringle-png{
+                width: 50px;
+                position: absolute;
+                margin-top: -400px;
+                margin-left: -200px;
+                opacity: 0.7;
+                animation: png 15s infinite;
+
+            }
+            @keyframes png {
+                0% {
+                    transform: scale(.7);
+                }
+                50% {
+                    transform: rotate(80deg);
+                }
+                100%{
+                    transform: scale(.7);
+                }             
+            }
+            #png-two {
+                width: 30px;
+                opacity: 0.5;
+                position: absolute;
+                margin-left:170vh;
+                margin-top: -50px;
+                animation:pngTwo infinite 15s;
+            }
+            @keyframes pngTwo {
+                0% {
+                    transform: rotate(30deg);
+                }
+                50% {
+                    transform: rotate(180deg);
+                }
+                100%{
+                    transform: rotate(30deg);
+                }       
+            }
+            @media screen and (max-width:876px) {
+            .container {
+                height: 700px; 
+                flex-direction: column;
+            }
+            .img {
+                margin: auto ;
+            }
+            img {
+                width: 500px;
+            }
+            .content{
+                display: flex;
+                
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .content > p {
+                width: 500px;
+            }             
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="circle"></div>
+            <div class="tringle"></div>
+            <div class="circle-two"></div>
+            <img id="png-two" src="https://static.vecteezy.com/system/resources/previews/001/200/691/original/triangle-png.png" alt="">
+            <img id="tringle-png" src="https://static.vecteezy.com/system/resources/previews/001/200/602/original/triangle-png.png" alt="">
+            <div class="img">
+                <img
+                    src="https://i.pinimg.com/736x/12/d6/05/12d6053a569b3abd57b265e6ffc2b0ac.jpg"
+                    alt="">
+            </div>
+            <div class="content">
+                <h2>IMG animation Content</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem labore officia
+                    minus eaque saepe vel laborum rerum, nesciunt hic iure culpa esse. Provident
+                    iusto itaque sequi, quis vitae obcaecati dolore.</p>
+            </div>
+        </div>
+
+    </body>
+</html>

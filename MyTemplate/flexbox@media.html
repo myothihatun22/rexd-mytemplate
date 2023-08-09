@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flex web</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100%;
+                background-color: #28263c;
+                color: white;
+            }
+            .section-one {
+                display: flex;
+                height: 100vh;
+                width: 100%;
+            }
+            .text {
+                width: 50%;
+                align-items: center;
+                flex-direction: column;
+                text-align: justify;
+            }
+
+            .one-photo {
+                width: 50%;
+                background-color: #232046;
+            }
+            .width-500 {
+                width: 500px;
+            }
+            .center-flex {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+            }
+            .section-two {
+                display: flex;
+                height: 50vh;
+                margin: auto;
+            }
+            .two-text {
+                text-align: center;
+                justify-content: center;
+                margin: auto;
+            }
+            .width-100px {
+                width: 300px;
+                height: fit-content;
+            }
+            .section-three {
+                display: flex;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                height: 50vh;
+            }
+            .imgpic {
+                width: 550px;
+                height: fit-content;
+
+            }
+            .padding-50 {
+                padding: 50px;
+            }
+            .text3 {
+                display: flex;
+                flex-direction: column;
+            }
+            .section-four {
+                margin-top: 50px;
+                display: flex;
+                flex-direction: row-reverse;
+                margin-right: -50px;
+                justify-content: center;
+                align-items: center;
+                height: 50vh;
+            }
+            .text4 {
+                display: flex;
+                flex-direction: column;
+                text-align: end;
+            }
+            .imgpic4 {
+                width: 400px;
+                height: fit-content;
+            }
+            .img5 {
+                width: 300px;
+                border-radius: 50%;
+                height: 300px;
+            }
+            .section-five {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20vh;
+                height: 80vh;
+                justify-content: center;
+                align-items: center;
+            }
+            .text5 {
+                text-align: center;
+                padding: 30px;
+            }
+            .text5 > p {
+                width: 300px;
+            }
+
+            @media screen and (max-width:576px) {
+                * {
+                    font-size: 15px;
+                    flex-direction: column;
+
+                }
+                .section-one {
+                    flex-direction: column;
+                    height: 80vh;
+                    padding: 10px;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .text {
+                    width: 100%;
+                    margin-bottom: 50px;
+                }
+                .one-photo {
+                    width: 100%;
+                    padding: 50px;
+                    background-color: #a7a6ae;
+                }
+                .width-500 {
+                    width: 300px;
+                }
+                .m-w {
+                    width: 200px;
+                    height: fit-content;
+                }
+                .imgpic {
+                    padding: 0%;
+                    width: 250px ;
+                }
+                h2 {
+                    text-align: center;
+                }
+                p {
+                    text-align: center;
+                }
+                .section-four{
+                    margin: auto;
+                    margin-top: 70px;
+                    flex-direction: column-reverse;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="section-one">
+            <div class="text center-flex">
+                <h2>Flex box
+                </h2>
+                <p class="width-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+            <div class="one-photo center-flex">
+                <img class="m-w"
+                    width="500px"
+                    height="600px"
+                    src="https://cdnb.artstation.com/p/assets/images/images/039/541/761/large/mirco-cabbia-sciamano240-power-cm-1-3.jpg?1626204723"
+                    alt="">
+            </div>
+        </div>
+        <div class="section-two">
+            <div class="two-text">
+                <h2 >Flex box
+                </h2>
+                <p class=" width-100px">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+            <div class="two-text">
+                <h2>Flex box
+                </h2>
+                <p class="width-100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+            <div class="two-text">
+                <h2>Flex box
+                </h2>
+                <p class="width-100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+        </div>
+        <div class="section-three">
+            <img
+                class="imgpic padding-50"
+                src="https://animecorner.me/wp-content/uploads/2022/11/chainsaw-man-power-figure.png"
+                alt="">
+            <div class="text3">
+                <h2>Flex box
+                </h2>
+                <p class="width-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+        </div>
+        <div class="section-four ">
+            <img
+                class="imgpic4 padding-50"
+                src="https://external-preview.redd.it/JJKuTGgrIotOVQKlng7OPqXPS1bKgjT11FJ4M8RU_NQ.jpg?auto=webp&s=1a50c5f454dfff5415fd6da30c840c92c3f2873c"
+                alt="">
+            <div class="text4">
+                <h2>Flex box
+                </h2>
+                <p class="width-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+        </div>
+        <div class="section-five">
+            <img class="img5" src="https://images7.alphacoders.com/112/1126216.jpg" alt="">
+            <div class="text5">
+                <h2 >Hello ..!
+                </h2>
+                <p class="width-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Maiores vero suscipit nobis a distinctio perspiciatis nemo quisquam amet
+                    repellat, sequi consectetur natus fugit hic molestiae voluptates quia,
+                    temporibus non! Velit.</p>
+            </div>
+
+        </div>
+
+    </body>
+</html>

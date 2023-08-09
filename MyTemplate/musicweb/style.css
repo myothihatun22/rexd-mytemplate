@@ -1,0 +1,159 @@
+.bg-rex {
+    background-image: linear-gradient(to right top, #232230, #443763, #724a94, #ae57c2, #f45ce7);
+}
+.box-shodow-rex{
+    box-shadow: 0px 0px 20px #fd05e8;
+}
+.color-rex {
+    color: #f45ce7;
+}
+.height-fit{
+    height: 20px;
+}
+
+.color-rexh {
+    color: #0dcaf0;
+}
+* {
+    cursor: pointer;
+    color: #fff6ff;
+    font-size: 18px;
+    scroll-behavior:smooth;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.width-500px {
+    width: 500px;
+}
+.p-m-0 {
+    padding: 0;
+    margin: 0;
+}
+.width-100px {
+    width: 100px;
+}
+.box-shadow-none:focus {
+    box-shadow: none;
+}
+.height-30px {
+    height: 80px;
+    padding: 0;
+}
+.bg-nav {
+    background-color: rgba(55, 58, 58, 0.2);
+}
+.bg-btn {
+    background-color: #232230;
+}
+.click:focus {
+    background-color: #f45ce7;
+}
+.height-100vh {
+    height: 100vh;
+}
+.height-auto {
+    height: auto;
+}
+.navbar {
+    position: fixed;
+    transition: 1.3s;
+    width: 100%;
+}
+.padding-top-80px {
+    padding-top: 80px;
+}
+.content-all-center {
+    justify-content: center;
+    align-items: center;
+}
+.bg-second {
+    background-color: #232230;
+}
+.bg-btn2 {
+    background-color: #e747d9;
+}
+.flex-direction-column {
+    flex-direction: column;
+}
+.margin-top-200px {
+    margin-top: 200px;
+}
+.margin-top-50px {
+    margin-top: 50px;
+}
+.color-rex2 {
+    color: #ffff;
+}
+.zindex-5 {
+    z-index: 5;
+}
+.hovere:hover {
+    border-radius: 20px;
+    box-shadow: 0 0 55px #690669;
+    border-right: 3px solid #e747d9;
+    border-left: 3px solid #d835cb;
+    color: #ff51f0;
+}
+.hovere:focus {
+    background-color: #807da0;
+}
+.transition {
+    transition: 0.5s;
+}
+.zindex-3 {
+    z-index: 3;
+}
+.w-30px {
+    width: 30px;
+}
+.margin-left-200px {
+    margin-left: 200px;
+}
+.height-130vh {
+    height: 130vh;
+}
+.w-30px rounded-circle height-30px{
+    width: 50px;
+}
+.height-30px{
+    height: 30px;
+}
+.boxs-animate{
+    animation: boxAnimate 3s ease-in-out in;
+}
+
+img{
+    border-radius: 20px;
+}
+audio {
+    width: 100%;
+    margin-top: 50px;
+    height: auto;
+    border-radius: 30px;
+    background-color:#363336;
+    border: 1px solid #461743;
+    box-shadow: 0px 0px 15px  #f00dce;
+    color: #ff00ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.height-80vh{
+    height: 80vh;
+}
+@media only screen and (max-width: 768px) {
+    *{
+        font-size: 15px !important;
+    }
+    .section-one{
+        display: none;
+
+    }
+    .Section-three{
+        display: none !important;
+    }
+    .music-player-card{
+        width:300px  !important;
+    }
+    
+    
+    
+}

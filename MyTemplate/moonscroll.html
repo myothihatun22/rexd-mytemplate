@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>color</title>
+
+        <style>
+            body {
+                background-color: #324B4F;
+            }
+            .all {
+                display: flex;
+                margin: auto;
+
+            }
+            .light {
+                background-color: #00E7FF;
+                width: 100px;
+                height: 100px;
+                margin: 70px;
+                border-radius: 50%;
+                position: absolute;
+            }
+            #dark {
+                background-color: #324B4F;
+                width: 100px;
+                height: 100px;
+                margin: 0;
+                border: 0;
+                border-radius: 50%;
+                position: absolute;
+                transition: 2s;
+
+            }
+            .darkch {
+                margin: 50px !important;
+            }
+            p {
+                margin: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello This scroll js</h1>
+        <div class="all">
+            <div class="light"></div>
+            <div id="dark"></div>
+
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe cum quo
+            asperiores a facilis, hic ratione harum ut nesciunt laudantium inventore ipsa
+            atque corporis deserunt molestias consequatur autem sapiente magnam.</p>
+        <script>
+            const dark = document.getElementById('dark')
+            window.addEventListener('scroll', change);
+            function change() {
+                const windowtiming = window.innerHeight / 5 * 4;
+                const userview = dark.getBoundingClientRect().top;             
+                if(userview < windowtiming){
+                    dark
+                    .classList
+                    .add('darkch');
+                    console.log('hello')
+                }else if (windowtiming < windowtiming){
+                    dark.classList.remove('darkch')
+                }
+                
+            }
+        </script>
+
+    </body>
+</html>

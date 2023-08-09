@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note here!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        body{
+            background: #F1F2B5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #135058, #10100c);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #135058, #454533); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container py-4 ">
+        <h2 class="text-center fw-bold ">Note your text here ! </h2>
+        <div class="my-3 w-100 d-flex justify-content-center">
+            <input id="notefield" class="w-25  focus-none px-2 py-1" type="text" placeholder="Note here">
+            <div onclick="noted()" class="btn btn-dark">note</div>
+        </div>
+        <div class="row my-4 p-5 d-flex justify-content-center   ">
+            <div id="field" class="col-5">
+                
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    
+</body>
+<script>
+    const notesList = [];
+    const field = document.getElementById("field");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        loadNotes();
+    });
+
+    function loadNotes() {
+        const storedNotes = localStorage.getItem("notesList");
+        if (storedNotes) {
+            notesList.push(...JSON.parse(storedNotes));
+            for (const note of notesList) {
+                let rowdiv = document.createElement("div");
+                rowdiv.style.marginTop = "10px";
+                rowdiv.textContent = note;
+                field.appendChild(rowdiv);
+            }
+        }
+    }
+    function noted() {
+        let notefield = document.getElementById("notefield").value;
+        if (notefield.trim() === "") {
+            return; // Don't save empty notes
+        }
+
+        let rowdiv = document.createElement("div");
+        rowdiv.style.marginTop = "10px";
+        rowdiv.textContent = notefield;
+        field.appendChild(rowdiv);
+        notesList.push(notefield);
+        localStorage.setItem("notesList", JSON.stringify(notesList));
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</html>
